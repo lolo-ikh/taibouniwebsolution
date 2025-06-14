@@ -1,12 +1,21 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 /* Apply Montserrat font to everything */
 body {
   margin: 0;
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    width: 100%;
 }
 
 /* Header container */
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
   background-color: #000;
   color: white;
   display: flex;
@@ -14,6 +23,8 @@ body {
   align-items: center;
   padding: 5px 30px;
   flex-wrap: wrap;
+  z-index: 1000;
+  width: 100%;
 }
 
 /* Logo */
@@ -62,7 +73,11 @@ body {
 .right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
+}
+.social{
+  display: flex;
+  align-items: center;
 }
 
 /* Social icons */
@@ -93,7 +108,7 @@ body {
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 15px;
   transition: background-color 0.3s ease, color 0.3s ease;
   outline: none;
 }
@@ -111,7 +126,7 @@ body {
   position: absolute;
   right: 0;
   background: white;
-  border-radius: 6px;
+  border-radius: 10px;
   margin-top: 5px;
   min-width: 120px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -142,7 +157,7 @@ body {
 
 /* Hover on links */
 .dropdown a:hover {
-  background-color: #f2f2f2;
+  background-color: #d9d8d8;
 }
 
 /* Optional animation */
@@ -155,4 +170,268 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  z-index: 1;
+}
+
+/* Video Background */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Dark Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* adjust for darkness */
+  z-index: 2;
+}
+
+/* Text Content */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.2;
+  margin-top: 30px;
+}
+
+
+.hero-content h1 span {
+  background: linear-gradient(90deg, #676666, #ffffff, #676666);
+  background-size: 300%;
+  background-position: 0%;
+  -webkit-background-clip: text;
+  background-clip: text;  
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  animation: shine 5s infinite ease-in-out;
+  display: inline-block;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -150%;
+  }
+  100% {
+    background-position: 150%;
+  }
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.tagline {
+  font-style: italic;
+  color: #ccc;
+  font-size: 1rem;
+  max-width: 600px;
+}
+
+/* Buttons */
+.hero-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  background-color: #ffffff;
+  color: black;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background-color: rgb(163, 162, 162);
+  color: #000000;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
+
+
+.about-section {
+  background: #fff;
+  padding: 100px 80px;
+  padding-top: 130px;
+height: 100vh;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.about-text {
+  flex: 1 1 50%;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.about-stats {
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Stat Boxes */
+.stat-box {
+  position: relative;
+  border: 2px solid #00ffaa;
+  border-radius: 15px;
+  padding: 25px;
+  background: transparent;
+  text-align: center;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Split Hover Effect */
+.split-hover {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.split-hover .stat-front,
+.split-hover .stat-back {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: all 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.split-hover .stat-front {
+  left: 0;
+  z-index: 1;
+  background: white;
+  color: #111;
+}
+
+.split-hover .stat-back {
+  left: 100%;
+  width: 50%; /* 🔧 Set the correct width upfront */
+  background: #f4f4f4;
+  color: #333;
+  z-index: 2;
+}
+
+
+.split-hover:hover .stat-front {
+  left: 0;
+  width: 50%;
+}
+
+.split-hover:hover .stat-back {
+  left: 50%;
+  width: 50%; /* 🔧 Add this line to fit it in the right side */
+}
+
+/* Typography */
+.stat-front h3 {
+  font-size: 2.5rem;
+  margin: 10px 0;
+  font-weight: 800;
+}
+
+.stat-front p,
+.stat-back p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Button */
+.btn-mini {
+  margin-top: 12px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn-mini:hover {
+  background-color: #333;
 }
