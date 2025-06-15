@@ -237,6 +237,130 @@
     
   </div>
 </section>
+<!-- Dynamic Typewriter Section -->
+<section class="typewriter-section">
+  <h2>Give us your <span id="typewriter"></span><span class="cursor">|</span></h2>
+</section>
+<!-- Contact Section -->
+<section class="contact-section">
+  <div class="border-white">
+  <h2 class="section-title">CONTACT</h2>
+  <p class="section-subtitle">Contact us for more information</p>
+  <div class="contact-container">
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name *" required>
+      <input type="email" placeholder="Your Email *" required>
+      <textarea placeholder="Your Message *" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="contact-info">
+      <div><i class="fa-solid fa-phone"></i> +213 771 73 51 35 / +213 23 52 52 38</div>
+      <div><i class="fa-solid fa-envelope"></i> info@taibouniwebsolution.com</div>
+    </div>
+  </div>
+
+  <div class="social-icons">
+    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+  </div>
+  </div>
+  <div class="contact-map-container">
+    <div class="contact-text">
+      <i class="fa-solid fa-location-dot"></i> 
+      <h3>Let's get in touch</h3>
+      <p>Les Vergers, Street 04 No 13, Bir Mourad Rais, Algiers, Algeria</p>
+
+    </div>
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.743261539053!2d3.050198275835063!3d36.7287267722675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fad9c77089f9d%3A0xdc40ecae5c2ca101!2sTaibouni%20Web%20Solution!5e0!3m2!1sen!2sdz!4v1750013109333!5m2!1sen!2sdz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+
+</section>
+<section class="newsletter-section">
+  <div class="newsletter-content">
+    <h3>Stay in the loop</h3>
+    <p>Be the first to know about our latest creations, tips, and web magic. No spam, just love!</p>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Taibouni Web Solution. All rights reserved.</p>
+
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+
+    <div class="footer-social">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-pinterest-p"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script>
+const sentences = [
+  "idea, we'll code it for you.",
+  "dream, we'll bring it to life.",
+  "vision, we'll build it from scratch.",
+  "project, and we'll make it shine.",
+  "challenge, we'll solve it together."
+];
+
+const typewriter = document.getElementById("typewriter");
+const section = document.querySelector(".typewriter-section");
+
+let current = 0;
+let letterIndex = 0;
+let isDeleting = false;
+
+function type() {
+  let fullText = sentences[current];
+  let displayText = fullText.substring(0, letterIndex);
+  typewriter.textContent = displayText;
+
+  if (!isDeleting) {
+    if (letterIndex < fullText.length) {
+      letterIndex++;
+      setTimeout(type, 100);
+    } else {
+      isDeleting = true;
+      setTimeout(type, 2000);
+    }
+  } else {
+    if (letterIndex > 0) {
+      letterIndex--;
+      setTimeout(type, 50);
+    } else {
+      isDeleting = false;
+      current = (current + 1) % sentences.length;
+      section.className = `typewriter-section glow${(current + 1)}`;
+      setTimeout(type, 500);
+    }
+  }
+}
+type();
+</script>
+
 
 
 
