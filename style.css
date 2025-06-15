@@ -70,7 +70,7 @@ body {
 
 
 /* Right section: Contact + Social + Language */
-.right {
+.right_header {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -435,3 +435,5 @@ height: 100vh;
 .btn-mini:hover {
   background-color: #333;
 }
+
+
